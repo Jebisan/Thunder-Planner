@@ -15,8 +15,8 @@ const store = configureStore();
 //const firstDate = store.dispatch(addDate({date: '5. Maj 2018'}));
 //const secondDate = store.dispatch(addDate({date: '10. Maj 2018'}));
 
-//const firstJob =     store.dispatch(addJob({id:'3224', name:'Søren 18 års', date:'9. Maj 2018', info:'Pris: 4000 kr'}));
-//const secondJob =     store.dispatch(addJob({id:'4214', name:'Tønder Gymnasium', date:'20. April 2018', info:'Pris: 8000 kr'}));
+//const firstJob =     store.dispatch(addJob({id:'4224', name:'Søren 18 års', date:'9. Maj 2018', info:'Pris: 4000 kr'}));
+//const secondJob =     store.dispatch(addJob({id:'3214', name:'Tønder Gymnasium', date:'20. April 2018', info:'Pris: 8000 kr'}));
 //const thirdJob =     store.dispatch(addJob({id:'4334', name:'Strib Efterskole', date:'21. Juni 2018', info:'Pris: 2500 kr'}));
 
 

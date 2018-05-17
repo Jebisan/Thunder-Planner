@@ -19,10 +19,10 @@ export const addJob = (
   });
   
   // REMOVE_JOB
-  export const removeJob = ( id  = {}) => (
-    {
+  export const removeJob = (id) => (
+    { 
+    id,
     type: 'REMOVE_JOB',
-    id
   });
 
 

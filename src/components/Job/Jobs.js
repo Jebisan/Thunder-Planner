@@ -2,20 +2,21 @@ import React from "react";
 import { connect } from 'react-redux';
 import Job from './Job';
 
-const Jobs = (props) => {
-  return (
+export const Jobs = (props) => (
     <div className="NewPost">
-    <h2>Jobs</h2>        
-    {
-        props.jobs.map((job) => 
-          <Job 
-           key = {job.id} {...job} 
-          />
-        )
-      }
+    <h2>Jobs</h2>    
+    {  
+    props.jobs.lenght === 0 ? (
+      <p>NO JOBS</p>
+    ) : (
+      props.jobs.map((job) => 
+      <Job key = {job.id} {...job} />
+    ))
+  }
+    
     </div>
-  );
-}
+    );
+
   
 
   const mapStateToProps = state => {

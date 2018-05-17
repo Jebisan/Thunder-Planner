@@ -1,8 +1,7 @@
 import React from "react";
 import {Link} from 'react-router-dom';
 
-  const Job = ({...job}) => {
-     return (
+  const Job = ({...job}) => (
       <div>
       <Link to = {`/edit/${job.id}`}>
          <h3>{job.id + job.name}</h3>
@@ -10,5 +9,5 @@ import {Link} from 'react-router-dom';
        
         </div>
       );
-  }
+  
   export default (Job); 

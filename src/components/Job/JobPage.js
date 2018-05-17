@@ -3,18 +3,29 @@ import CreateJob from './CreateJob'
 import {connect} from 'react-redux';
 import {addJob} from '../../actions/jobs';
 
-const JobPage = (props) => 
-(
-        <div className="NewPost">
-       <CreateJob
-       onSubmit={(job) => {
-        props.dispatch(addJob(job));
-        props.history.push('/');
-       }}
-       />
+export class JobPage extends React.Component { 
+    onSubmit = (job) => {
+        this.props.addJob(job);
+        this.props.history.push('/');
     
-    </div>
-)
+};
+
+render () {
+    return (
+        <div className="NewPost">
+        <CreateJob
+        onSubmit={this.onSubmit}
+        />
+     
+     </div>
+    );
+}
+}
 
 
-export default connect()(JobPage);
+const mapDispatchToProps = (dispatch) => ({
+    addJob: (job) => dispatch(addJob(job))
+});
+
+
+export default connect(undefined, mapDispatchToProps)(JobPage);

@@ -4,16 +4,23 @@ import {connect} from 'react-redux';
 import {addDate} from '../../actions/dates';
 import Dates from './Dates'
 
-const DatePage = (probs) => 
-(
-        <div className="NewPost">
-       <CreateDate
-       onSubmit={(date) => {
-        probs.dispatch(addDate(date));
-       }}
-       />
-       <Dates className="NewPost"/>
-    </div>
-)
 
-export default connect()(DatePage);
+export class DatePage extends React.Component {
+    onSubmit = date => {
+        this.props.onSubmit(date);
+    };
+    render () {
+        return (<div className="NewPost">
+        <CreateDate
+        onSubmit = {this.onSubmit}
+        />
+        <Dates className="NewPost"/>
+     </div>
+    )}
+}
+
+const mapDispatchToProps = (dispatch) => ({
+    onSubmit: (date) => dispatch(addDate(date))
+});
+
+export default connect(undefined, mapDispatchToProps)(DatePage);

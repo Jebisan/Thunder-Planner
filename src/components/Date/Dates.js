@@ -2,7 +2,7 @@ import React from "react";
 import Date from './Date';
 import {connect} from 'react-redux';
 
-  const Dates = (props) => {
+ export const Dates = (props) => {
     return (
       <div>
       <h2>Dates</h2>        

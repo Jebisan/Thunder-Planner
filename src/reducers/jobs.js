@@ -27,6 +27,8 @@ export default (state = jobsReducerDefaultState, action) => {
         };
       });
 
+      case 'SET_JOBS': 
+      return action.jobs;
 
     default:
       return state;

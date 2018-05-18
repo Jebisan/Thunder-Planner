@@ -10,11 +10,9 @@ export class DatePage extends React.Component {
         this.props.onSubmit(date);
     };
     render () {
-        return (<div className="NewPost">
-        <CreateDate
-        onSubmit = {this.onSubmit}
-        />
-        <Dates className="NewPost"/>
+        return (<div>
+        <CreateDate onSubmit = {this.onSubmit}/>
+        <Dates/>
      </div>
     )}
 }

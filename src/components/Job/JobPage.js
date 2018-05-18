@@ -1,11 +1,11 @@
 import React from 'react';
 import CreateJob from './CreateJob'
 import {connect} from 'react-redux';
-import {addJob} from '../../actions/jobs';
+import {startAddJob} from '../../actions/jobs';
 
 export class JobPage extends React.Component { 
     onSubmit = (job) => {
-        this.props.addJob(job);
+        this.props.startAddJob(job);
         this.props.history.push('/');
     
 };
@@ -24,7 +24,7 @@ render () {
 
 
 const mapDispatchToProps = (dispatch) => ({
-    addJob: (job) => dispatch(addJob(job))
+    startAddJob: (job) => dispatch(startAddJob(job))
 });
 
 

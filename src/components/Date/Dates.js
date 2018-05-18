@@ -8,9 +8,7 @@ import {connect} from 'react-redux';
       <h2>Dates</h2>        
       {
           props.dates.map((date) => 
-            <Date 
-             key = {date.id} {...date} 
-            />
+            <Date key = {date.id} {...date}/>
           )
         }
       </div>

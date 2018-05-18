@@ -1,4 +1,3 @@
-
 // Dates Reducer
 
 const datesReducerDefaultState = [];

@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import CreateJob from './CreateJob';
-import {editJob, removeJob} from '../../actions/jobs';
+import {editJob, startRemoveJob} from '../../actions/jobs';
 
 export class EditJob extends React.Component {
     onSubmit = (job) => {
@@ -11,7 +11,7 @@ export class EditJob extends React.Component {
     }
 
     onRemove = () => {
-        this.props.removeJob({id: this.props.job.id});
+        this.props.startRemoveJob({id: this.props.job.id});
         this.props.history.push('/');
     };
 
@@ -35,7 +35,7 @@ const mapStateToProps = (state, props) => ({
 
 const mapDispatchToProps = (dispatch, props) => ({
     editJob: (id, job) => dispatch(editJob(id, job)),
-    removeJob: (data) => dispatch(removeJob(data))
+    startRemoveJob: (data) => dispatch(startRemoveJob(data))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditJob);

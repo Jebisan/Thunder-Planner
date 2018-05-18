@@ -14,20 +14,17 @@ export default class CreateJob extends Component {
             employees: [],
             focused: false,
             id: props.job ? props.job.id:'',
+            jobNumber: props.job ? props.job.jobNumber:'',
             name: props.job ? props.job.name:'',
             info: props.job ? props.job.info:''
             };
     }
-        
-/* 
+        /*
+
        componentDidMount(){ 
         axios.get('http://api.thunder-power.dk/users').then(response => {
         this.setState({employees: response.data});
-       // console.log('Employees found:',this.state.employees);
         })
-        axios.get('https://thunder-planner.firebaseio.com/cars.json').then(response => {
-            this.setState({cars: response.data});
-            })
          } */
 
      
@@ -43,14 +40,13 @@ export default class CreateJob extends Component {
     this.setState(() => ({focused:focused}));
   };
 
-
-  onIDchange = (e) => {
-      const id = e.target.value;
-    this.setState(() => (
-        {
-            id
-        }));
-  };
+  onJobNumberChange = (e) => {
+    const jobNumber = e.target.value;
+  this.setState(() => (
+      {
+          jobNumber
+      }));
+};
 
   onEventNamechange = (e) => {
     const name = e.target.value;
@@ -71,10 +67,11 @@ onInfohange = (e) => {
   onSubmit = (e) => {
     e.preventDefault();
     //const formattedDate = (moment(this.state.selectedDate).format('dddd LL'));
+    const newDate = this.state.selectedDate.toString();
     this.props.onSubmit({
-        id: this.state.id,
+        jobNumber: this.state.jobNumber,
         name: this.state.name,
-        date: this.state.selectedDate/*formattedDate[0].toUpperCase() + formattedDate.substr(1)*/,
+        date: newDate,/*formattedDate[0].toUpperCase() + formattedDate.substr(1)*/
         info: this.state.info
       
     })
@@ -86,7 +83,7 @@ onInfohange = (e) => {
             <div className="NewPost">
                 <h1>Opret job</h1>  
                 <form onSubmit={this.onSubmit}>
-                <input type="number" placeholder='ID' autoFocus value={this.state.id} onChange ={this.onIDchange}/>
+                <input type="number" placeholder='Job number' autoFocus value={this.state.jobNumber} onChange ={this.onJobNumberChange}/>
                 <input type="text" placeholder='Event titel' value={this.state.name} onChange ={this.onEventNamechange}/>
 
 

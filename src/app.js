@@ -4,7 +4,7 @@ import {Provider} from 'react-redux';
 import AppRouter from './routers/AppRouter';
 import configureStore from './store/configureStore';
 import {addDate, removeDate} from './actions/dates';
-import {addJob} from './actions/jobs';
+import {startSetJobs} from './actions/jobs';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 
@@ -22,16 +22,23 @@ const store = configureStore();
 
 //REMOVE DATE
     //store.dispatch(removeDate({ id: firstDate.date.id }));
-
-
+//     <button onClick={handlePrintReduxStore}>REDUX STORE</button>
+const handlePrintReduxStore = () => {
+    console.log(store.getState());
+}
 
 const jsx = (
     <div>
     <Provider store = {store}>
     <AppRouter/>
-    </Provider>
+    </Provider> 
     </div>
 )
 
+ReactDOM.render(<p>Loading...</p>, document.getElementById('app'));
 
-ReactDOM.render(jsx, document.getElementById('app'));
+store.dispatch(startSetJobs()).then(() => {
+    ReactDOM.render(jsx, document.getElementById('app'));
+});
+
+

@@ -24,15 +24,6 @@ export default class CreateDate extends Component {
     this.setState(() => ({focused:focused}));
   };
 
-/* 
-  handleDeleteDate(dateToRemove){
-      this.setState((prevState)=> ({
-      dates: prevState.dates.filter((date) => {
-        return dateToRemove!==date.date;
-      })
-    }));
-  } */
-
   onSubmit = (e) => {
     e.preventDefault();
     const formattedDate = (moment(this.state.selectedDate).format('dddd LL'));

@@ -71,10 +71,20 @@ export const startSetJobs = () => {
 
 //REMOVE_JOB
 export const startRemoveJob = ({id} = {}) => {
-    return (dispatch) => {
-      return database.ref(`jobs/${id}`).remove().then(() => {
-        dispatch(removeJob({id}));
-      });
-  };
+  return (dispatch) => {
+    return database.ref(`jobs/${id}`).remove().then(() => {
+      dispatch(removeJob({id}));
+    });
+};
+};
+
+//EDIT_JOB
+export const startEditJob = (id, updates) => {
+  return (dispatch) => {
+    return database.ref(`jobs/${id}`).update(updates).then(() => {
+      dispatch(editJob(id, updates));
+    })
+
+    }
 };
 
